@@ -5,8 +5,7 @@ constructor(orderdetails) {
     this.productid = orderdetails.productid;
     this.quantity = orderdetails.quantity;
     this.unitprice = orderdetails.unitprice;
-    this.createdate = orderdetails.createdate;
-    this.updatedate = orderdetails.updatedate;
     }        
 }
-export default OrderDetailsDTO;
+
+module.exports =OrderDetailsDTO;
