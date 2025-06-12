@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-module.exports = (productController) => {
+module.exports = (CartController) => {
   /**
  * @swagger
  * tags:
@@ -25,8 +25,8 @@ module.exports = (productController) => {
  *               items:
  *                 $ref: '#/components/schemas/Product'
  */
-  router.get('/', (req, res) => productController.getAll(req, res));
-  router.post('/', (req, res) => productController.create(req, res));
+  router.get('/', (req, res) => CartController.getAll(req, res));
+  router.post('/', (req, res) => CartController.create(req, res));
 
   return router;
 };
