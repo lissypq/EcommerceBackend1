@@ -1,33 +1,33 @@
 const express = require('express');
 const router = express.Router();
 
-module.exports = (productController) => {
+module.exports = (CustomerController) => {
 
   /**
    * @swagger
-   * /api/v1/products:
+   * /api/v1/customers:
    *   get:
-   *     summary: Obtiene todos los productos
-   *     tags: [Products]
+   *     summary: Obtiene todos los clientes
+   *     tags: [Customers]
    *     security:
    *       - BearerAuth: []
    *     responses:
    *       200:
-   *         description: Lista de productos
+   *         description: Lista de clientes
    *         content:
    *           application/json:
    *             schema:
    *               type: array
    *               items:
-   *                 $ref: '#/components/schemas/Product'
+   *                 $ref: '#/components/schemas/Customer'
    *       401:
    *         description: No autorizado
    *       500:
    *         description: Error del servidor
    */
  
-  router.get('/', (req, res) => productController.getAll(req, res));
-  router.post('/', (req, res) => productController.create(req, res));
+  router.get('/', (req, res) => CustomerController.getAll(req, res));
+  router.post('/', (req, res) => CustomerController.create(req, res));
 
   return router;
 };

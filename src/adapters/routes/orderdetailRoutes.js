@@ -6,24 +6,24 @@ module.exports = (OrderDetailController) => {
  * @swagger
  * tags:
  *   name: Products
- *   description: Gestión de productos
+ *   description: Gestión de pedidos
  */
 
 /**
  * @swagger
- * /api/products:
+ * /api/orderdetails:
  *   get:
- *     summary: Obtiene todos los productos
- *     tags: [Products]
+ *     summary: Obtiene todos los detalle de pedidos
+ *     tags: [OrderDetails]
  *     responses:
  *       200:
- *         description: Lista de productos
+ *         description: Lista de detalle de pedidos
  *         content:
  *           application/json:
  *             schema:
  *               type: array
  *               items:
- *                 $ref: '#/components/schemas/Product'
+ *                 $ref: '#/components/schemas/OrderDetail'
  */
   router.get('/', (req, res) => OrderDetailController.getAll(req, res));
   router.post('/', (req, res) => OrderDetailController.create(req, res));

@@ -1,33 +1,33 @@
 const express = require('express');
 const router = express.Router();
 
-module.exports = (productController) => {
+module.exports = (CuponsController) => {
 
   /**
    * @swagger
-   * /api/v1/products:
+   * /api/v1/cupons:
    *   get:
-   *     summary: Obtiene todos los productos
-   *     tags: [Products]
+   *     summary: Obtiene todos los cupones
+   *     tags: [Cupons]
    *     security:
    *       - BearerAuth: []
    *     responses:
    *       200:
-   *         description: Lista de productos
+   *         description: Lista de cupones
    *         content:
    *           application/json:
    *             schema:
    *               type: array
    *               items:
-   *                 $ref: '#/components/schemas/Product'
+   *                 $ref: '#/components/schemas/Cupons'
    *       401:
    *         description: No autorizado
    *       500:
    *         description: Error del servidor
    */
  
-  router.get('/', (req, res) => productController.getAll(req, res));
-  router.post('/', (req, res) => productController.create(req, res));
+  router.get('/', (req, res) => CuponsController.getAll(req, res));
+  router.post('/', (req, res) => CuponsController.create(req, res));
 
   return router;
 };

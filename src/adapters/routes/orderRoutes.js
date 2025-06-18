@@ -11,7 +11,7 @@ module.exports = (OrderController) => {
 
 /**
  * @swagger
- * /api/products:
+ * /api/orders:
  *   get:
  *     summary: Obtiene todos los pedidos
  *     tags: [Pedidos]
