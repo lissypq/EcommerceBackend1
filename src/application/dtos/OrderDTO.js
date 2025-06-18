@@ -1,7 +1,7 @@
 class OrderDTO{
     constructor(order) {
-        this.id = order.id;
-        this.userid = order.userid;
+        this.id = order._id;
+        this.customerid = order.customerid;
         this.totalprice = order.totalprice;
         this.orderdate = order.orderdate;
         this.orderstatus = order.orderstatus;

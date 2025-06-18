@@ -1,6 +1,6 @@
 class OrderDetailsDTO{
 constructor(orderdetails) {
-    this.id = orderdetails.id;
+    this.id = orderdetails._id;
     this.orderid = orderdetails.orderid;
     this.productid = orderdetails.productid;
     this.quantity = orderdetails.quantity;
