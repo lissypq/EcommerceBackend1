@@ -1,7 +1,6 @@
 class Order {
-  constructor({ id, userid,totalprice,orderdate,orderstatus}) {
-    this.id = id;
-    this.userid = userid;
+  constructor({ customerid,totalprice,orderdate,orderstatus}) {
+    this.customerid = customerid;
     this.totalprice = totalprice;
     this.orderdate = orderdate;
     this.orderstatus = orderstatus; 
