@@ -1,5 +1,6 @@
 const CreateOrderdetails = require('../../application/useCases/CreateOrderDetails');
 const OrderDetailsDTO = require('../../application/dtos/OrderDetailsDTO');
+const OrderDetailModel = require('../../infraestructure/database/models/OrderDetailModel');
  
 class OrderDetailController {
   constructor(OrderDetailsRepository) {
@@ -19,11 +20,13 @@ class OrderDetailController {
 
   async getAll(req, res) {
     try {
-      const ordersdetails = await this.OrderDetailsRepository.getAll();
+      const ordersdetails = await OrderDetailModel.find();
       res.status(200).json(ordersdetails);
     } catch (err) {
       res.status(500).json({ message: 'Error retrieving orders' });
     }
+
+
   }
 }
  

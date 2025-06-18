@@ -1,13 +1,15 @@
 const CreateProduct = require('../../application/useCases/CreateProduct');
 const ProductDTO = require('../../application/dtos/ProductDTO');
+const ProductModel = require('../../infraestructure/database/models/ProductModel');
  
 class ProductController {
   constructor(productRepository) {
     this.createProduct = new CreateProduct(productRepository);
   }
  
-  async create(req, res) {
+   async create(req, res) {
     try {
+      console.log('>>> Request body:', req.body);
       const product = await this.createProduct.execute(req.body);
       res.status(201).json(new ProductDTO(product));
     } catch (error) {
@@ -15,21 +17,14 @@ class ProductController {
     }
   }
 
-
-
   async getAll(req, res) {
     try {
-      const products = await this.productRepository.getAll();
+      const products = await ProductModel.find();
       res.status(200).json(products);
     } catch (err) {
-      res.status(500).json({ message: 'Error retrieving products' });
+      res.status(500).json({ message: 'Error retrievingk products' });
     }
   }
-
-
-
-
-
 
   async getAllById(req, res) {
     try {
@@ -42,8 +37,6 @@ class ProductController {
       res.status(500).json({ message: 'Error retrieving product' });
     }
   }
-
-
   
   async update(req, res) {
     try {
@@ -69,7 +62,6 @@ class ProductController {
       res.status(500).json({ message: 'Error deleting product' });
     }
   }
-
 
 
  

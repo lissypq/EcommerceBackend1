@@ -5,7 +5,7 @@ class UserController {
   constructor(signUpUseCase) {
     this.signUpUseCase = signUpUseCase;
   }
- 
+
   async signUp(req, res, next) {
     try {
       const dto = await this.signUpUseCase.execute(req.body);
@@ -15,5 +15,5 @@ class UserController {
     }
   }
 }
- 
+
 module.exports = UserController;

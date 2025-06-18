@@ -19,7 +19,7 @@ class OrderController {
 
   async getAll(req, res) {
     try {
-      const orders = await this.OrderRepository.getAll();
+      const orders = await OrderModel.find();
       res.status(200).json(orders);
     } catch (err) {
       res.status(500).json({ message: 'Error retrieving orders' });

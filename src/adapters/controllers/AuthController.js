@@ -2,7 +2,7 @@ class AuthController {
   constructor(signInUseCase) {
     this.signInUseCase = signInUseCase;
   }
- 
+
   async signIn(req, res, next) {
     try {
       const { username, password } = req.body;
@@ -14,5 +14,5 @@ class AuthController {
     }
   }
 }
- 
+
 module.exports = AuthController;
