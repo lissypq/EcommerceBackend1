@@ -2,10 +2,12 @@ const OrderRepository = require('../../domain/repositories/OrderRepository');
 const OrderModel = require('../database/models/OrderModel');
 const Order = require('../../domain/entities/Order');
 
-class MongoOrderRepository extends MongoOrderRepository {
+class MongoOrderRepository extends OrderRepository {
+
   async getAll() {
-    const order = await OrderModel.find();
-    return order.map(o => new Order(o.toObject()));
+    // Obtiene todos los pedidos de la base de datos
+        const newOrder = await OrderModel.find().lean().exec();
+        return newOrder.map(orders => new Order(newOrder));
   }
 
   async create(order) {
@@ -14,14 +16,12 @@ class MongoOrderRepository extends MongoOrderRepository {
   }
 
 
-
   async getById(id) {
-    const order = await OrderModel.findById(id);
-    if (!order) {
-      return null;
+   return OrderModel.findOne({ _id: id }).lean().exec()
     }
-    return new Order(order.toObject());
-    }
+
+  
+     
     
  
   }

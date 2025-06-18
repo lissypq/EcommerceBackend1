@@ -2,7 +2,7 @@ const CartRepository = require('../../domain/repositories/CartRepository');
 const CartModel = require('../database/models/CartModel');
 const Cart = require('../../domain/entities/Cart');
 
-class MongoCartRepository extends MongoCartRepository {
+class MongoCartRepository extends CartRepository {
   async getAll() {
     const carts = await CartModel.find();
     return Cart.map(c => new Cart(c.toObject()));

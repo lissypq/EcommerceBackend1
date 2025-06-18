@@ -2,7 +2,7 @@ const OrderDetailsRepository = require('../../domain/repositories/OrderDetailsRe
 const OrderDetailModel = require('../database/models/OrderDetailModel');
 const OrderDetails = require('../../domain/entities/OrderDetails');
 
-class MongoOrderDetailsRepository extends MongoOrderDetailsRepository {
+class MongoOrderDetailsRepository extends OrderDetailsRepository {
   async getAll() {
     const orderdetails = await OrderDetailModel.find();
     return orderdetails.map(od => new Order(od.toObject()));
@@ -16,7 +16,7 @@ class MongoOrderDetailsRepository extends MongoOrderDetailsRepository {
 
 
   async getById(id) {
-    const orderdetails = await OrderDetailModel.findById(id);
+    const orderdetails = await OrderDetailModel.findOne({ _id: id }).lean().exec();
     if (!orderdetails) {
       return null;
     }
