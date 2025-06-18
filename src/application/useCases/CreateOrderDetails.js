@@ -1,12 +1,12 @@
-const orderdetails = require('../../domain/entities/OrderDetails');
+const Orderdetails = require('../../domain/entities/OrderDetails');
  
 class CreateOrderdetails {
   constructor(orderDetailsRepository) {
     this.orderDetailsRepository = orderDetailsRepository;
   }
  
-  async execute(orderData) {
-    const orderdetails = new orderdetails(orderData);
+  async execute(orderDatails) {
+    const orderdetails = new Orderdetails(orderDatails);
     return await this.orderDetailsRepository.create(orderdetails);
   }
 }

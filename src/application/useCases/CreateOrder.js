@@ -1,4 +1,4 @@
-const order = require('../../domain/entities/Order');
+const Order = require('../../domain/entities/Order');
  
 class CreateOrder {
   constructor(orderRepository) {
@@ -6,7 +6,7 @@ class CreateOrder {
   }
  
   async execute(orderData) {
-    const order = new order(orderData);
+    const order = new Order(orderData);
     return await this.orderRepository.create(order);
   }
 }
