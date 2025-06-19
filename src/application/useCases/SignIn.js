@@ -4,8 +4,7 @@ class SignIn {
     this.passwordHasher = passwordHasher;
     this.tokenGenerator = tokenGenerator;
   }
- 
- 
+
   async execute({ username, password }) {
     const user = await this.userRepository.findByUsername(username);
     if (!user) throw new Error('User not found');
@@ -15,5 +14,5 @@ class SignIn {
     return { user, token };
   }
 }
- 
-module.exports = SignIn;;
+
+module.exports = SignIn;

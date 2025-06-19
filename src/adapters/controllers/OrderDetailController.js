@@ -1,4 +1,4 @@
-const CreateOrderdetails = require('../../application/useCases/CreateOrderdetails');
+const CreateOrderdetails = require('../../application/useCases/CreateOrderDetails');
 const OrderDetailsDTO = require('../../application/dtos/OrderDetailsDTO');
  
 class OrderDetailController {
