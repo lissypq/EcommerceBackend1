@@ -25,5 +25,4 @@ class MongoCartRepository extends CartRepository {
     
  
   }
->>>>>>> 28f00e44f809fcb372e231256c57fde08f60c38e
 module.exports = MongoCartRepository;
