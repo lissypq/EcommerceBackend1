@@ -1,7 +1,7 @@
 class Cart {
-  constructor({ id, items, totalprice,userid }) {
-    this.id = id;
-    this.items = items || [];
+  constructor({ productid,nameproduct, totalprice,userid }) {
+    this.productid = productid;
+    this.nameproduct = nameproduct || '';
     this.totalprice = totalprice || 0;
     this.userid = userid || null;
    }
